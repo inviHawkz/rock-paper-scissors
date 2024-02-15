@@ -7,29 +7,34 @@
 //    the system will tell the player to correct their input
 
 const choices = ["rock", "paper", "scissors"];
-const playerChoice = prompt("Please choose between Rock, Paper or Scissor");
+let playerChoice = prompt("Please choose between Rock, Paper or Scissor!").toLowerCase();
+
+if (playerChoice !== "rock" && "paper" && "scissors") {
+    playerChoice = prompt("Your Choice is wrong. Please choose between Rock, Paper or Scissor!").toLowerCase();
+}
 
 function computerChoice() {
     random = Math.floor(Math.random() * choices.length);
     return computerChoice = choices[random];
 }
-console.log("Computer choose: " + computerChoice());
+console.log("Computer choose " + computerChoice());
 
-if (playerChoice === computerChoice) {
-    console.log("It is a tie");
-} else if (playerChoice === "rock" && computerChoice === "paper") {
-    console.log("You lose, paper beats rock");
-} else if (playerChoice === "rock" && computerChoice === "scissors") {
-    console.log("You win, rock beats scissor");
-} else if (playerChoice === "paper" && computerChoice === "rock") {
-    console.log("You win, paper beats rock");
-} else if (playerChoice === "paper" && computerChoice === "scissors") {
-    console.log("You lose, scissors beats paper");
-} else if (playerChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lose, rock beats scissors");
-} else if (playerChoice === "scissors" && computerChoice === "paper") {
-    console.log("You win, scissors beats paper");
-} else if (playerChoice !== "rock" && playerChoice !== "paper" && playerChoice !== "scissors") {
-    console.log("Your choice is wrong, please enter again");
-    prompt("Please choose between Rock, Paper or Scissor");
+function playAGame() {
+    if (playerChoice === computerChoice) {
+        result = "It is a tie";
+    } else if (playerChoice === "rock" && computerChoice === "paper") {
+        result = "You lose, paper beats rock";
+    } else if (playerChoice === "rock" && computerChoice === "scissors") {
+        result = "You win, rock beats scissor";
+    } else if (playerChoice === "paper" && computerChoice === "rock") {
+        result = "You win, paper beats rock";
+    } else if (playerChoice === "paper" && computerChoice === "scissors") {
+        result = "You lose, scissors beats paper";
+    } else if (playerChoice === "scissors" && computerChoice === "rock") {
+        result = "You lose, rock beats scissors";
+    } else if (playerChoice === "scissors" && computerChoice === "paper") {
+        result = "You win, scissors beats paper";
+    }
+    return result;
 }
+console.log(playAGame());
